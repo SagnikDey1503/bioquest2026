@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0b3d1a;
+  --foreground: #ffffff;
+  --bq-green-dark: #0b3d1a;
+  --bq-green: #2f8a3e;
+  --bq-green-light: #7dd87b;
+  --bq-cta: #ecf39e;
+  --bq-navy: #11264f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-bq-green-dark: var(--bq-green-dark);
+  --color-bq-green: var(--bq-green);
+  --color-bq-green-light: var(--bq-green-light);
+  --color-bq-cta: var(--bq-cta);
+  --color-bq-navy: var(--bq-navy);
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-poppins);
+  --font-condensed: var(--font-ibm-plex-condensed);
+  --font-inter: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+}
