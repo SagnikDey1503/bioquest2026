@@ -26,7 +26,7 @@ export default function Home() {
       />
 
       {/* Overlay image starting from the top of the page */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-[15vh] -z-[5]">
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-[15vh] -z-[5] hidden sm:block">
         <Image
           src="/overlay.png"
           alt=""
