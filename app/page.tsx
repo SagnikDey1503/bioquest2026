@@ -56,15 +56,15 @@ export default function Home() {
 
         <a
           id="register"
-          href="#register-form"
-          className="font-condensed mt-10 inline-flex items-center justify-center rounded-full bg-bq-green-dark px-12 py-4 text-[40px] font-semibold leading-none tracking-tight text-bq-cta shadow-[0_0_30px_rgba(236,243,158,0.35)] ring-2 ring-bq-cta/40 hover:bg-bq-green-dark/90 hover:ring-bq-cta/70 transition"
-        >
+          href="/register"
+          style={{ cursor: 'pointer', userSelect: 'none' }}
+          className="font-condensed mt-10 inline-flex items-center justify-center rounded-full bg-bq-green-dark px-12 py-4 text-[40px] font-semibold leading-none tracking-tight text-bq-cta shadow-[0_0_30px_rgba(236,243,158,0.35)] ring-2 ring-bq-cta/40 hover:bg-bq-green-dark/90 hover:ring-bq-cta/70 transition cursor-pointer select-none"        >
           REGISTER
         </a>
       </section>
 
       {/* Kids playing illustration with countdown overlapping its bottom edge */}
-      <div className="relative z-10 -mt-[30vh] isolate">
+      <div className="pointer-events-none relative z-10 -mt-[30vh] isolate">
         {/* Overlay image behind kids-play (above bg, below the image) */}
         <Image
           src="/overlay.png"
