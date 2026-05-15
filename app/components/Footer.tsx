@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const navLinks = [
   { href: "#igem", label: "iGEM IIT Bombay" },
-  { href: "#project2024", label: "Project 2024" },
-  { href: "#project2023", label: "Project 2023" },
+  { href: "https://2024.igem.wiki/iit-bombay/", label: "Project 2024", external: true },
+  { href: "https://2025.igem.wiki/iit-bombay/", label: "Project 2025", external: true },
   { href: "#bioquest2024", label: "BioQuest 2024" },
   { href: "#achievements", label: "Achievements" },
   { href: "#contact", label: "Contact us" },
@@ -12,7 +12,7 @@ const navLinks = [
 
 const socials = [
   {
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/company/igem-iit-bombay/posts/?feedView=all",
     label: "LinkedIn",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
@@ -39,7 +39,7 @@ const socials = [
     ),
   },
   {
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/igem_iitb/",
     label: "Instagram",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
@@ -48,7 +48,7 @@ const socials = [
     ),
   },
   {
-    href: "https://youtube.com",
+    href: "https://www.youtube.com/@iGEM-IIT-Bombay",
     label: "YouTube",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
@@ -91,6 +91,8 @@ export default function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
+                    target={l.external ? "_blank" : undefined}
+                    rel={l.external ? "noreferrer noopener" : undefined}
                     className="font-condensed text-base font-medium text-white hover:text-bq-cta transition-colors"
                   >
                     {l.label}
@@ -115,8 +117,8 @@ export default function Footer() {
 
           <div className="flex items-center gap-4 text-bq-cta">
             {socials.map((s) => (
-              <a
-                key={s.label}
+              
+              <a  key={s.label}
                 href={s.href}
                 aria-label={s.label}
                 target="_blank"
