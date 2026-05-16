@@ -106,7 +106,7 @@ export default function Footer() {
               alt="iGEM IIT Bombay"
               width={200}
               height={200}
-              className="h-30 w-30 sm:h-35 sm:w-35 md:h-40 md:w-40"
+              className="h-30 w-30 sm:h-35 sm:w-35 md:h-40 md:w-40 brightness-150"
             />
           </div>
 

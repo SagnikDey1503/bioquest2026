@@ -75,12 +75,13 @@ export default function Home() {
           style={{ top: "10%" }}
         />
         <Image
-          src="/kids-play.png"
+          src="/kids-play-2.png"
           alt=""
           aria-hidden
           width={1920}
           height={1080}
-          className="pointer-events-none relative h-auto w-full"
+          className="pointer-events-none relative w-full"
+          style={{ height: "auto" }}
           priority
         />
         {/* Countdown positioned so 50% overlaps the bottom edge of the image */}

@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useState } from "react";
 
 const links = [
-  { href: "#home", label: "Home" },
-  { href: "#bioquest1", label: "BioQuest 1" },
-  { href: "https://www.igem-iitb.in/", label: "iGEM IITB"},
-  { href: "#faq", label: "FAQ" },
+  { href: "/#home", label: "Home" },
+  { href: "/#bioquest1", label: "BioQuest 1" },
+  { href: "https://www.igem-iitb.in/", label: "iGEM IITB" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export default function Navbar() {
@@ -37,7 +37,7 @@ export default function Navbar() {
           ))}
           <li>
             <Link
-              href="#register"
+              href="/register"
               className="font-condensed rounded-full bg-bq-green-dark px-5 py-2 text-xl font-bold tracking-tight text-bq-cta ring-2 ring-bq-cta/40 hover:bg-bq-green-dark/90 hover:ring-bq-cta/70 transition"
             >
               Register Now
@@ -83,7 +83,7 @@ export default function Navbar() {
             ))}
             <li>
               <Link
-                href="#register"
+                href="/register"
                 onClick={() => setOpen(false)}
                 className="font-condensed mt-1 inline-flex rounded-full bg-bq-green-dark px-5 py-2 font-bold tracking-tight text-bq-cta ring-2 ring-bq-cta/40"
               >
