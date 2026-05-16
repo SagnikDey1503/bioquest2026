@@ -28,7 +28,7 @@ export async function GET(
     return new Response("Not found", { status: 404 });
 
   const buf = rows[0].id_photo as Buffer;
-  return new Response(buf, {
+  return new Response(new Uint8Array(buf), {
     headers: { "Content-Type": detectMime(buf) },
   });
 }
