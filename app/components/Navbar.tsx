@@ -19,7 +19,7 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2">
         <Link href="#home" className="flex items-center gap-2 cursor-default">
           <Image
-            src="/igem-iitb-logo.png"
+            src="/igem-iitb-logo1.png"
             alt="iGEM IITB"
             width={64}
             height={64}

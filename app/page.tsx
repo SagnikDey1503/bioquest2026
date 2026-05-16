@@ -84,7 +84,7 @@ export default function Home() {
           priority
         />
         {/* Countdown positioned so 50% overlaps the bottom edge of the image */}
-        <div className="absolute inset-x-0 bottom-0 z-10 translate-y-1/3 px-4 sm:translate-y-1/2">
+        <div className="absolute inset-x-0 bottom-0 z-10 translate-y-1/2 px-4 sm:translate-y-1/2">
           <div className="mx-auto w-full max-w-3xl">
             <Countdown targetIso={TARGET_DATE} />
             <p className="mt-3 text-center text-sm text-white/90 drop-shadow">Registrations close on 3rd July 2026</p>
