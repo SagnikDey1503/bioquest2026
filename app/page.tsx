@@ -8,7 +8,7 @@ export default function Home() {
   const TARGET_DATE = "2026-07-03T00:00:00+05:30";
 
   return (
-    <main id="home" className="relative flex min-h-screen flex-col">
+    <main id="home" className="relative flex min-h-screen flex-col overflow-x-hidden">
       {/* Background — solid color with grid overlay */}
       <div
         aria-hidden
@@ -26,7 +26,7 @@ export default function Home() {
       />
 
       {/* Overlay image starting from the top of the page */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-[15vh] -z-[5] hidden sm:block">
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-[15vh] -z-[5] hidden xl:block">
         <Image
           src="/overlay.png"
           alt=""
@@ -38,19 +38,19 @@ export default function Home() {
 
       <Navbar />
 
-      <section className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center px-4 pt-20 text-center sm:px-6 sm:pt-32">
-        <div className="flex items-end justify-center gap-3">
+      <section className="relative z-11 mx-auto flex w-full max-w-7xl flex-col items-center px-4 pt-20 text-center sm:px-6 sm:pt-32">
+        <div className="flex w-full items-end justify-center gap-3">
           <Image
             src="/bioquest-wordmark.png"
             alt="BIOQUEST"
             width={1290}
             height={329}
             priority
-            className="h-auto w-[min(90vw,1000px)]"
+            className="h-auto w-[min(95vw,800px)] max-w-full xl:w-[min(50vw,800px)]"
           />
         </div>
 
-        <p className="mt-4 px-4 text-base font-semibold text-white drop-shadow sm:px-0 sm:text-2xl md:text-3xl">
+        <p className="mt-4 max-w-full px-2 text-sm font-semibold text-white drop-shadow sm:px-4 sm:text-lg md:px-0 md:text-2xl lg:text-3xl">
           Science &amp; Innovation Quest for Young India
         </p>
 
@@ -58,13 +58,13 @@ export default function Home() {
           id="register"
           href="/register"
           style={{ cursor: 'pointer', userSelect: 'none' }}
-          className="font-condensed mt-10 inline-flex items-center justify-center rounded-full bg-bq-green-dark px-8 py-3 text-2xl font-semibold leading-none tracking-tight text-bq-cta shadow-[0_0_30px_rgba(236,243,158,0.35)] ring-2 ring-bq-cta/40 hover:bg-bq-green-dark/90 hover:ring-bq-cta/70 transition cursor-pointer select-none sm:px-12 sm:py-4 sm:text-[40px]"        >
+          className="  font-condensed mt-8 inline-flex items-center justify-center rounded-full bg-bq-green-dark px-6 py-2.5 text-lg font-semibold leading-none tracking-tight text-bq-cta shadow-[0_0_30px_rgba(236,243,158,0.35)] ring-2 ring-bq-cta/40 hover:bg-bq-green-dark/90 hover:ring-bq-cta/70 transition cursor-pointer select-none sm:mt-10 sm:px-8 sm:py-3 sm:text-2xl md:px-12 md:py-4 md:text-[40px]"        >
           REGISTER
         </a>
       </section>
 
       {/* Kids playing illustration with countdown overlapping its bottom edge */}
-      <div className="pointer-events-none relative z-10 -mt-[10vh] isolate sm:-mt-[30vh]">
+      <div className="pointer-events-none relative z-10 -mt-[5vh] isolate sm:-mt-[20vh] md:-mt-[12vh] lg:-mt-[30vh] xl:-mt-[40vh]">
         {/* Overlay image behind kids-play (above bg, below the image) */}
         <Image
           src="/overlay.png"
@@ -116,7 +116,7 @@ export default function Home() {
         {/* Stats overlaid on top, centered on the image */}
         <div className="absolute inset-0 z-10 flex flex-col justify-center px-6">
           <div className="mx-auto w-full max-w-6xl">
-            <div className="grid grid-cols-3 gap-3 text-center text-white sm:gap-8 sm:text-left">
+            <div className="grid grid-cols-3 gap-5 text-left text-white sm:gap-8 sm:text-left">
               {[
                 { value: "X+", label: "Registrations", desc: "description" },
                 { value: "X+", label: "Round 1", desc: "description" },

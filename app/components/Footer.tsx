@@ -10,6 +10,33 @@ const navLinks = [
   { href: "#contact", label: "Contact us" },
 ];
 
+const faqItems = [
+  {
+    q: "General",
+    a: "BioQuest is iGEM IIT Bombay's flagship science & innovation outreach quest for school students across India.",
+  },
+  {
+    q: "Registration",
+    a: "Registrations are free and open until 3rd July 2026. Click the Register button on the homepage to sign up.",
+  },
+  {
+    q: "Eligibility",
+    a: "Students currently in grades 8–12 from any school in India are eligible to participate.",
+  },
+  {
+    q: "Schedule",
+    a: "The event runs in two rounds. Round 1 is online; finalists are invited for Round 2 at IIT Bombay.",
+  },
+  {
+    q: "Prizes",
+    a: "Top performers win exciting prizes and the top 50 students get a chance to visit IIT Bombay.",
+  },
+  {
+    q: "Support",
+    a: "For any questions, reach us via the Contact section or email igem@iitb.ac.in.",
+  },
+];
+
 const socials = [
   {
     href: "https://www.linkedin.com/company/igem-iit-bombay/posts/?feedView=all",
@@ -71,20 +98,38 @@ export default function Footer() {
   return (
     <footer className="bg-bq-green-dark text-white">
       <div className="mx-auto max-w-7xl px-6 pb-12 pt-24 sm:pb-16 sm:pt-28">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-12">
-          {/* Logo */}
-          <div className="flex items-start justify-center sm:justify-start">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-16">
+          {/* Logo — hidden on mobile, shown from sm+ */}
+          <div className="hidden sm:flex items-start justify-start">
             <Image
-              src="/igem-iitb-logo.png"
+              src="/igem-iitb-logo1.png"
               alt="iGEM IIT Bombay"
               width={200}
               height={200}
-              className="h-40 w-40 sm:h-48 sm:w-48"
+              className="h-30 w-30 sm:h-35 sm:w-35 md:h-40 md:w-40"
             />
           </div>
 
-          {/* Navigate links */}
-          <div className="flex flex-col items-center sm:items-start">
+          {/* FAQ — on mobile sits above Navigate (col 2, row 1); on sm+ moves to col 3 */}
+          <div id="faq" className="flex flex-col items-start scroll-mt-24 sm:col-start-3 sm:row-start-1">
+            <h3 className="font-condensed text-2xl font-bold tracking-tight text-bq-cta">FAQ</h3>
+            <ul className="mt-4 w-full space-y-2">
+              {faqItems.map((item, i) => (
+                <li key={i}>
+                  <details className="group">
+                    <summary className="font-condensed cursor-pointer list-none text-base font-medium text-white transition-colors hover:text-bq-cta marker:hidden">
+                      <span className="mr-2 inline-block transition-transform group-open:rotate-90">›</span>
+                      {item.q}
+                    </summary>
+                    <p className="font-condensed mt-1 pl-4 text-sm text-white/80">{item.a}</p>
+                  </details>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Navigate links — on mobile below FAQ; on sm+ in the middle column */}
+          <div className="flex flex-col items-start sm:col-start-2 sm:row-start-1">
             <h3 className="font-condensed text-2xl font-bold tracking-tight text-bq-cta">NAVIGATE</h3>
             <ul className="mt-4 space-y-2">
               {navLinks.map((l) => (
@@ -104,8 +149,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom row */}
-        <div className="mt-12 flex flex-col items-center gap-6 border-t border-white/10 pt-6 sm:mt-16 sm:flex-row sm:justify-between">
-          <div className="flex flex-col items-center gap-4 text-sm text-bq-cta sm:flex-row sm:gap-8">
+        <div className="mt-12 flex flex-col-reverse items-center gap-6 border-t border-white/10 pt-6 sm:mt-16 sm:flex-row sm:justify-between">
+          <div className="flex flex-row items-center gap-2 text-sm text-bq-cta sm:flex-row sm:gap-14">
             <span className="font-condensed">© All Rights Reserved</span>
             <Link href="#privacy" className="font-condensed hover:opacity-80">
               Privacy Policy

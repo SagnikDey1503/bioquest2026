@@ -50,7 +50,7 @@ export default function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-bq-navy text-white md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center text-bq-navy outline-none focus:outline-none focus-visible:outline-none md:hidden"
         >
           {open ? (
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
