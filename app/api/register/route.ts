@@ -50,7 +50,6 @@ export async function POST(request: Request) {
   const school     = (fd.get("school")     as string | null)?.trim() ?? "";
   const city       = (fd.get("city")       as string | null)?.trim() ?? "";
   const confirmed  = fd.get("confirmed") === "true";
-  const photoFile  = fd.get("idPhoto") as File | null;
 
   if (firstName.length < 2)
     return Response.json({ detail: "First name must be at least 2 characters." }, { status: 400 });
@@ -74,24 +73,16 @@ export async function POST(request: Request) {
   if (!city)
     return Response.json({ detail: "City is required." }, { status: 400 });
 
-  if (!photoFile || photoFile.size === 0)
-    return Response.json({ detail: "ID card photo is required." }, { status: 400 });
-
-  if (photoFile.size > 300 * 1024)
-    return Response.json({ detail: "ID card photo must be under 300 KB." }, { status: 400 });
-
   if (!confirmed)
     return Response.json({ detail: "You must accept the confirmation." }, { status: 400 });
-
-  const photoBuffer = Buffer.from(await photoFile.arrayBuffer());
 
   try {
     await ensureTable();
     await pool.query(
       `INSERT INTO registrations
-        (first_name, middle_name, last_name, email, phone, grade, school, city, id_photo, confirmed)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`,
-      [firstName, middleName, lastName, email.toLowerCase(), digits, grade, school, city, photoBuffer, true]
+        (first_name, middle_name, last_name, email, phone, grade, school, city, confirmed)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
+      [firstName, middleName, lastName, email.toLowerCase(), digits, grade, school, city, true]
     );
     return Response.json({ message: "Registered successfully" }, { status: 201 });
   } catch (err: unknown) {

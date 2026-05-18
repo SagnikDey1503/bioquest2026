@@ -16,7 +16,6 @@ export default function RegisterPage() {
     firstName: "", middleName: "", lastName: "",
     email: "", phone: "", grade: "", school: "", city: "",
   });
-  const [idPhoto, setIdPhoto] = useState<File | null>(null);
   const [confirmed, setConfirmed] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -25,21 +24,15 @@ export default function RegisterPage() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handlePhoto(e: React.ChangeEvent<HTMLInputElement>) {
-    setIdPhoto(e.target.files?.[0] ?? null);
-  }
-
   async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     if (!confirmed) { setErrorMsg("Please accept all confirmation statements."); setStatus("error"); return; }
-    if (!idPhoto)   { setErrorMsg("Please upload your ID card photo."); setStatus("error"); return; }
 
     setStatus("loading");
     setErrorMsg("");
 
     const fd = new FormData();
     Object.entries(form).forEach(([k, v]) => fd.append(k, v));
-    fd.append("idPhoto", idPhoto);
     fd.append("confirmed", "true");
 
     try {
@@ -124,34 +117,6 @@ export default function RegisterPage() {
 
                 <Field label="School Name" name="school" type="text" value={form.school} onChange={handleChange} placeholder="Delhi Public School, Mumbai" required />
                 <Field label="City" name="city" type="text" value={form.city} onChange={handleChange} placeholder="Mumbai" required />
-
-                {/* ID Card Photo */}
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-semibold text-white/90">
-                    ID Card Photo <span className="text-white/50 font-normal">(max 300 KB)</span>
-                  </label>
-                  <label className="flex cursor-pointer flex-col items-center justify-center rounded-lg border border-dashed border-white/30 bg-white/5 px-4 py-4 text-center transition hover:border-bq-cta/50 hover:bg-white/10">
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handlePhoto}
-                      required
-                      className="sr-only"
-                    />
-                    {idPhoto ? (
-                      <span className="text-sm text-bq-cta">{idPhoto.name}</span>
-                    ) : (
-                      <>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="mb-1 text-white/40">
-                          <rect x="3" y="3" width="18" height="18" rx="2" />
-                          <circle cx="8.5" cy="8.5" r="1.5" />
-                          <polyline points="21 15 16 10 5 21" />
-                        </svg>
-                        <span className="text-sm text-white/50">Click to upload image</span>
-                      </>
-                    )}
-                  </label>
-                </div>
               </div>
 
               {/* Confirmation */}
